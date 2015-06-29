@@ -10,16 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+   @IBOutlet weak var display: UILabel!
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   var isDisplayInUse : Bool = false
 
+   @IBAction func appendDigit(sender: UIButton) {
+
+      // Get pressed digit
+      let digit = sender.currentTitle!
+
+      if isDisplayInUse == true {
+         display.text = display.text! + digit
+      }
+      else {
+         display.text = digit
+         isDisplayInUse = true
+      }
+
+   }
 
 }
 
